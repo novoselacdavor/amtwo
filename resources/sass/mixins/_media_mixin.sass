@@ -1,0 +1,10 @@
+// media min-width
+@mixin media_min( $breakpoint )
+	@if( $breakpoint )
+		@media screen and ( min-width: $breakpoint )
+			@content
+// media max-width
+@mixin media_max( $breakpoint )
+	@if( $breakpoint )
+		@media screen and ( max-width: $breakpoint )
+			@content
