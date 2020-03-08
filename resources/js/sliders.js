@@ -11,5 +11,17 @@ jQuery(document).ready(function($){
 	    	clickable: true
 	    }
 	});
+
+	// Review slider
+	var review_slider = new Swiper('.swiper-container.review_list__slider', {
+	    spaceBetween: 0,
+	    slidesPerView: 1,
+	    // Pagination bullets
+	    pagination: {
+	    	el: '.swiper-pagination',
+	    	type: 'bullets',
+	    	clickable: true
+	    }
+	});
 	
 });

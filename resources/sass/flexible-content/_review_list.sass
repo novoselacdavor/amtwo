@@ -1,0 +1,36 @@
+.layout__review_list
+	position: relative
+	padding: 3em 0
+	.container
+		padding: 0
+	.swiper-slide
+		padding: 2em 1em
+	.swiper-slide__img-container
+		display: flex
+		justify-content: center
+		padding: 2em 0
+		+ .swiper-slide__content
+			margin-top: 1em
+	.swiper-slide__img
+		position: relative
+		width: 120px
+		height: 120px
+		border: 4px solid $color-green
+		overflow: hidden
+		transform: rotate(45deg)
+		img
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: -30px
+			width: 170px
+			height: 170px
+			max-width: none
+			margin: auto
+			object-fit: cover
+			transform: rotate(-45deg)
+	.swiper-slide__content
+		text-align: center
+	.swiper-pagination
+		position: relative

@@ -1,8 +1,10 @@
 footer
 	width: 100%
-	padding: 38px 0
+	padding: 1em 0
 	text-align: center
 	background-color: $color-dark-gray
+	@include media_min($above_tablet)
+		padding: 2em 0
 	p
 		color: $color-white
 		opacity: 0.8
