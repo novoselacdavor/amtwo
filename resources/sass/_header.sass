@@ -1,37 +1,85 @@
 .main-header
-	position: absolute
-	top: 0
 	width: 100%
-	padding: 70px 0
-	background-color: orange
+	font-family: 'Roboto-Regular'
+	padding: 1em
+	@include media_min($above_tablet)
+		position: absolute
+		top: 0
+		z-index: 99
+		padding: 20px 0
+	@include media_min($above_laptop_xs)
+		padding: 40px 0
+	@include media_min($above_laptop_sm)
+		padding: 70px 0
 .main-header__inner
 	display: flex
+	align-items: center
 	justify-content: space-between
 	nav
-		display: flex
+		text-align: center
+		@include media_min($above_tablet)
+			display: flex
 		a
-			line-height: 0.85em
-			color: $color-white
+			display: block
+			font-size: 1.5em
+			line-height: 1
+			padding: 1em
+			color: $color-gray
 			text-decoration: none
 			text-transform: uppercase
 			letter-spacing: 0.04em
+			@include media_min($above_tablet)
+				color: $color-white
+				line-height: 0.85em
 	li
 		list-style-type: none
 		&:not(:last-of-type)
-			margin-right: 1em
+			@include media_min($above_tablet)
+				margin-right: 1em
+	i
+		display: flex
+		align-items: center
+		justify-content: center
+		font-size: 2em
+		width: 48px
+		height: 48px
+		border: 2px solid $color-gray
+		border-radius: 3px
+.main-header__nav
+	position: fixed
+	top: 0
+	right: -100%
+	width: 100%
+	height: 100vh
+	padding-top: 6em
+	transition: right 0.3s ease-in-out
+	background-color: $color-white
+	z-index: 99
+	&.menu-opened
+		right: 0
+	i
+		position: absolute
+		top: 0.5em
+		right: 0.5em
 .logo
 	display: flex
 	flex-wrap: wrap
 	align-content: center
 	width: 60px
 	height: 60px
-	color: $color-white
-	border: 2px solid $color-white
+	color: $color-gray
+	border: 2px solid $color-gray
 	border-radius: 3px
 	text-decoration: none
+	@include media_min($above_tablet)
+		color: $color-white
+		border-color: $color-white
 	span
 		width: 100%
 		text-align: center
 		font-size: 1.25em
 		line-height: 1
 		text-transform: uppercase
+.mobile-menu-trigger
+	@include media_min($above_tablet)
+		display: none

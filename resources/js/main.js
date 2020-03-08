@@ -16,6 +16,17 @@ jQuery(document).ready(function($){
 		}, 500, 'linear');
 	});
 
+	// loading projects on button click
+	var load_more_click = 0;
+	$('.load-more-js').on('click', function(){
+		var load_more_data = rest_of_projects;
+		$(this).parents('section').find('.load-more-data-js').append(load_more_data[load_more_click]);
+		load_more_click++;
+		if(load_more_data.length == load_more_click) {
+			$(this).fadeOut();
+		}
+	});
+
 	// validation
 	// $(".contact-form form").validate({
 	// 	rules: {
@@ -73,43 +84,13 @@ jQuery(document).ready(function($){
 	// 	$('html, body').animate({scrollTop:0})
 	// });
 	
-	// mobile menu
-	// $('.mobile-menu-open').on('click', function(){
-	// 	$(this).toggleClass('opened');
-	// 	$(this).parent().find('nav').stop().slideToggle();
-	// 	$('.has-submenu i').on('click', function(e){
-	// 		e.preventDefault();
-	// 		$(this).parents('.has-submenu').find('.sub-menu').stop().slideToggle()
-	// 	})
-	// })
-
-	// reviews slider
-	// var mySwiper = new Swiper('.swiper-container.reviews-slider', {
-	//     spaceBetween: 36,
-	//     slidesPerView: 3,
-	//     // pagination bullets
-	//     pagination: {
-	//     	el: '.swiper-pagination',
-	//     	type: 'bullets',
-	//     	clickable: true
-	//     },
-	//     // Navigation arrows
- //        navigation: {
- //          	nextEl: '.swiper-button-next',
- //          	prevEl: '.swiper-button-prev',
- //        },
- //        breakpoints: {
- //            // when window width is <= 480px
- //            480: {
- //              slidesPerView: 1,
- //              spaceBetween: 20
- //            },
- //            // when window width is <= 1024px
- //            1024: {
- //              slidesPerView: 2,
- //              spaceBetween: 20
- //            }
- //        }
-	// });
+	// mobile menu toggle
+	$('.mobile-menu-trigger').on('click', function(){
+		$('.main-header__nav, body').toggleClass('menu-opened');
+	});
+	// mobile menu close
+	$('.close-menu').on('click', function(){
+		$(this).parent().removeClass('menu-opened');
+	});
 	
 });

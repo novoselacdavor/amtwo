@@ -15,14 +15,18 @@ add_filter( 'rest_authentication_errors', function( $result ) {
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 function add_theme_scripts() {
     // Register Styles
+    wp_register_style( 'swiper-style', get_template_directory_uri() . '/public/assets/swiper/css/swiper.min.css', null, null, 'all' );
     wp_register_style( 'main-style', get_template_directory_uri() . '/public/assets/css/styles.css', null, null, 'all' );
     // Register Scripts
+    wp_register_script( 'swiper-script', get_template_directory_uri() . '/public/assets/swiper/js/swiper.min.js', array ( 'jquery' ), null, true );
     wp_register_script( 'validation-script', get_template_directory_uri() . '/public/assets/validation/jquery.validate.min.js', array ( 'jquery' ), null, true );
     wp_register_script( 'main-script', get_template_directory_uri() . '/public/assets/js/main.min.js', array ( 'jquery' ), null, true );
     // Include Styles
+    wp_enqueue_style( 'swiper-style' );
     wp_enqueue_style( 'main-style' );
     // Include Scripts
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'swiper-script' );
     wp_enqueue_script( 'validation-script' );
     wp_enqueue_script( 'main-script' );
 }
@@ -33,7 +37,6 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'excerpt' );
     add_theme_support( 'widgets' );
-    set_post_thumbnail_size( 120, 80, true ); // default Post Thumbnail dimensions (cropped)
     // additional image sizes
     add_image_size( '1920x1080', 1920, 1080, array( 'center', 'center' ) );
 }

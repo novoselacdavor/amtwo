@@ -1,0 +1,23 @@
+.layout__image_title_text
+	text-align: center
+	padding: 3em 0
+	img
+		+ h3,
+		+ p
+			margin-top: 1em
+	h3
+		font-size: 1.15em
+		text-transform: uppercase
+		+ p
+			margin-top: 1em
+	.image_title_text__item
+		background-color: $color-white
+		box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
+		transition: box-shadow 0.3s ease-in-out
+		padding: 20px 15px
+		@include media_min($above_tablet)
+			padding: 40px 30px
+		&:not(:first-of-type)
+			margin-top: 3em
+		&:hover
+			box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.28)

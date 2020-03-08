@@ -25,13 +25,19 @@
 					<span>lo</span>
 					<span>go</span>
 				</a>
-				<?php
-					$menu_args = array(
-						'menu'			=>	'main-menu',
-						'items_wrap'	=>	'<nav id="%1$s" class="%2$s">%3$s</nav>'
-					);
-					wp_nav_menu( $menu_args );
-				?>
+				<div class="main-header__nav">
+					<i class="material-icons close-menu">close</i>
+					<?php
+						$menu_args = array(
+							'menu'			=>	'main-menu',
+							'items_wrap'	=>	'<nav id="%1$s" class="%2$s">%3$s</nav>'
+						);
+						wp_nav_menu( $menu_args );
+					?>
+				</div>
+				<div class="mobile-menu-trigger">
+					<i class="material-icons">menu</i>
+				</div>
 			</div>
 		</div>
 	</header>

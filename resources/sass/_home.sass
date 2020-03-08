@@ -1,2 +1,40 @@
 .hero
-	min-height: 95vh
+	position: relative
+	.hero_slider__slider
+	.swiper-slide
+	.swiper-slide__img
+		position: relative
+		height: 160px
+		@include media_min($above_mobile_sm)
+			height: 260px
+		@include media_min($above_mobile)
+			height: 320px
+		@include media_min($above_tablet)
+			height: 95vh
+		img
+			position: absolute
+			width: 100%
+			height: 100%
+			object-fit: cover
+			@include media_min($above_tablet)
+				
+	.swiper-slide__content
+		text-align: center
+		padding: 1em
+		@include media_min($above_mobile)
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			color: $color-white
+		h2
+			text-transform: uppercase
+			font-size: 1.7em
+			+ p
+				margin-top: 1em
+				font-size: 1.15em
+				line-height: 1.4
+	.swiper-pagination
+		position: static
+		@include media_min($above_mobile)
+			position: absolute
