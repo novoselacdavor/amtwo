@@ -1,0 +1,53 @@
+.layout__image_external_link
+	position: relative
+	padding: 3em 0
+	@include media_min($above_mobile)
+		padding: 4.5em 0
+	@include media_min($above_tablet)
+		padding: 5.5em 0
+	@include media_min($above_laptop_xs)
+		padding: 6.5em 0
+	@include media_min($above_laptop_sm)
+		padding: 7em 0
+.image_external_link__inner
+	display: flex
+	flex-wrap: wrap
+	@include media_min($above_mobile_sm)
+		text-align: center
+		justify-content: center
+	@include media_min($above_mobile)
+		justify-content: flex-start
+.image_external_link__item
+	width: 100%
+	text-align: center
+	filter: grayscale(1)
+	transition: filter 0.3s ease-in-out
+	@include media_min($above_mobile_sm)
+		width: 48%
+		display: flex
+		align-items: center
+		justify-content: center
+	@include media_min($above_mobile)
+		width: 16%
+	&:not(:first-of-type),
+		margin-top: 2em
+		@include media_min($above_mobile_sm)
+			margin-top: 0
+		@include media_min($above_mobile)
+			margin-left: 5%
+	&:nth-of-type(n+3)
+		@include media_min($above_mobile_sm)
+			margin-top: 2em
+		@include media_min($above_mobile)
+			margin-top: 0
+	&:nth-of-type(n+6)
+		@include media_min($above_mobile)
+			margin-top: 1em
+	&:nth-of-type(5n+1)
+		@include media_min($above_mobile)
+			margin-left: 0
+	&:hover
+		filter: grayscale(0)
+	img
+		display: block
+		margin: auto

@@ -1,0 +1,39 @@
+.social-links-container
+	margin: 0 0 3em
+	@include media_min($above_tablet)
+		margin: 0
+		padding: 3em
+	@include media_min($above_laptop_sm)
+		padding: 6.5em 0
+	h2
+		font-family: 'Montserrat-Black'
+		text-align: center
+		text-transform: uppercase
+		font-size: 2em
+		@include media_min($above_laptop_sm)
+			font-size: 3.1em
+		+ div
+			margin-top: 1em
+			@include media_min($above_laptop_sm)
+				margin-top: 1.5em
+	a
+		text-decoration: none
+		
+		width: 30px
+		height: 30px
+		&:not(:last-of-type)
+			margin-right: 1em
+		span
+			color: $color-light-gray
+			display: block
+			width: inherit
+			height: inherit
+			transition: color 0.5s ease-in-out
+			font-size: 1.3em
+			&:hover
+				color: inherit
+.social-links__inner
+	> div
+		display: flex
+		flex-wrap: wrap
+		justify-content: center

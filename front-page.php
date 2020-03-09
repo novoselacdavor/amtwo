@@ -4,7 +4,7 @@
 		
 		<?php if( have_rows( 'hero_slider' ) ): ?>
 			<!-- Hero section -->
-			<section class="hero hero_slider__container">
+			<section class="hero hero_slider__container" id="hero-js">
 				<!-- Hero slider -->
 				<div class="swiper-container hero_slider__slider">
 				    <!-- Additional required wrapper -->
@@ -54,6 +54,14 @@
 		<!-- flexible content section -->
 		<?php get_template_part( 'includes/flexible-content/flexible-content', 'page' ); ?>
 		<!--/ flexible content section -->
+
+		<!-- contact form section -->
+		<?php get_template_part( 'includes/misc/contact-form', 'page' ); ?>
+		<!--/ contact form section -->
+
+		<!-- social links section -->
+		<?php get_template_part( 'includes/misc/social-links', 'page' ); ?>
+		<!--/ social links section -->
 
 	</main>
 	<!--/ main section -->

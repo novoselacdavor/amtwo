@@ -1,7 +1,12 @@
 .layout__image_title_text
 	text-align: center
 	padding: 3em 0
+	@include media_min($above_laptop_sm)
+		padding: 2.5em 0 6em
 	img
+		width: auto
+		max-height: 46px
+		max-width: none
 		+ h3,
 		+ p
 			margin-top: 1em
@@ -10,6 +15,11 @@
 		text-transform: uppercase
 		+ p
 			margin-top: 1em
+	.image_title_text__inner
+		@include media_min($above_tablet)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
 	.image_title_text__item
 		background-color: $color-white
 		box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
@@ -17,7 +27,12 @@
 		padding: 20px 15px
 		@include media_min($above_tablet)
 			padding: 40px 30px
+			width: 31.5%
 		&:not(:first-of-type)
 			margin-top: 3em
+			@include media_min($above_tablet)
+				margin-top: 0
+		&:nth-child(n+4)
+			margin-top: 2.75%
 		&:hover
 			box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.28)

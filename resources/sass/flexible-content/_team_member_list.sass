@@ -1,5 +1,7 @@
 .layout__team_member_list
 	padding: 3em 0
+	@include media_min($above_laptop_sm)
+		padding-bottom: 7.5em
 	img
 		display: block
 		width: 100%
@@ -16,14 +18,44 @@
 		transition: border-color 0.3s ease-in-out
 		&:hover
 			border-color: $color-green
+	.team_member_list__inner
+		@include media_min($above_mobile_sm)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			@include media_min($above_tablet)
+				justify-content: flex-start
 	.team_member_list__item
 		position: relative
 		box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
 		transition: box-shadow 0.3s ease-in-out
+		@include media_min($above_mobile_sm)
+			width: 48%
+		@include media_min($above_tablet)
+			width: 23%
+			overflow: hidden
 		&:not(:first-of-type)
 			margin-top: 3em
+			@include media_min($above_mobile_sm)
+				margin-top: 0
+			@include media_min($above_tablet)
+				margin-left: 2.66%
+		&:nth-of-type(n+3)
+			@include media_min($above_mobile_sm)
+				margin-top: 4%
+			@include media_min($above_tablet)
+				margin-top: 0
+		&:nth-of-type(n+5)
+			@include media_min($above_tablet)
+				margin-top: 2.66%
+		&:nth-of-type(4n+1)
+			@include media_min($above_tablet)
+				margin-left: 0
 		&:hover
 			box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.28)
+			@include media_min($above_tablet)
+				.team_member_list__social
+					bottom: 0
 	.team_member_list__social
 		position: absolute
 		bottom: 0
@@ -34,9 +66,16 @@
 		justify-content: center
 		background-color: rgba(255, 255, 255, 0.6)
 		padding: 15px 20px 5px
+		@include media_min($above_mobile_sm)
+			padding: 15px 10px 5px
+		@include media_min($above_tablet)
+			transition: bottom 0.3s ease-in-out
+			bottom: -100%
 		h3
 			width: 100%
 			font-size: 1.15em
 			text-align: center
 			margin-bottom: 10px
+			text-transform: uppercase
+			font-family: 'Montserrat-Medium'
 	

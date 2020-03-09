@@ -1,0 +1,110 @@
+.layout__blog_posts
+	position: relative
+	padding: 3em 0
+	@include media_min($above_laptop_sm)
+		padding: 5em 0 7em
+	h2
+		text-align: center
+		text-transform: uppercase
+		margin-bottom: 1em
+		@include media_min($above_laptop_sm)
+			font-size: 1.75em
+			margin-bottom: 3em
+.blog_posts__inner
+	@include media_min($above_mobile)
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		@include media_min($above_laptop_xs)
+			justify-content: flex-start
+.blog_posts__item
+	background-color: $color-white
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2)
+	transition: box-shadow 0.3s ease-in-out
+	border-radius: 5px
+	overflow: hidden
+	@include media_min($above_mobile)
+		width: 48%
+	@include media_min($above_laptop_xs)
+		width: 31.5%
+	&:hover
+		box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.28)
+	&:not(:first-of-type)
+		margin-top: 3em
+		@include media_min($above_mobile)
+			margin-top: 0
+		@include media_min($above_laptop_xs)
+			margin-left: 2.75%
+	&:nth-of-type(n+3)
+		@include media_min($above_mobile)
+			margin-top: 4%
+		@include media_min($above_laptop_xs)
+				margin-top: 0
+	&:nth-child(n+4)
+		@include media_min($above_laptop_xs)
+			margin-top: 2.75%
+	&:nth-child(3n+1)
+		@include media_min($above_laptop_xs)
+			margin-left: 0
+	a
+		text-decoration: none
+		color: $color-gray
+		@include media_min($above_mobile)
+			display: flex
+			flex-wrap: wrap
+			align-content: space-between
+			height: 100%
+		> div
+			&:last-of-type
+				padding: 10px 15px
+				display: flex
+				justify-content: space-between
+				@include media_min($above_mobile)
+					width: 100%
+				@include media_min($above_tablet)
+					padding: 20px 30px
+				> p
+					> span
+						opacity: 0.5
+						&:first-of-type
+							opacity: 1
+							color: $color-green
+							margin-right: 0.5em
+						&:last-of-type
+							@include media_min($above_laptop_xs)
+								font-size: 0.85em
+.item__image
+	position: relative
+	@include media_min($above_laptop_xs)
+		height: 250px
+		img
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		margin: auto
+		background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(13,13,13,1) 18%,rgba(53,53,53,0) 74%,rgba(72,72,72,0) 100%)
+		opacity: 0.75
+.item__content
+	padding: 10px 15px
+	@include media_min($above_tablet)
+		padding: 20px 30px
+	h3
+		font-family: 'Montserrat-Medium'
+		@include media_min($above_laptop_xs)
+			font-size: 1.5em
+		+ p
+			margin-top: 1em
+			@include media_min($above_laptop_xs)
+				margin-top: 2em
+	p
+		line-height: 1.5em
+		@include media_min($above_laptop_xs)
+			font-size: 0.85em

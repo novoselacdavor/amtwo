@@ -20,13 +20,14 @@ body
 	@include media_min($above_mobile)
 		padding-top: 0
 	.main-header__nav
-		top: calc(46px * 2)
 		@include media_min($above_mobile)
 			top: 32px
+	.sticky-header
+		@include media_min($above_mobile)
+			top: 32px !important
 // typography
 h1, h2, h3, h4, h5, h6
-	font-family: 'Montserrat-Medium'
-	font-weight: 600
+	font-family: 'Montserrat-SemiBold'
 	margin: 0
 	letter-spacing: 0.04em
 h1
@@ -70,18 +71,35 @@ select
 
 ::-ms-input-placeholder
 	color: $color-gray
+.contact-form-container
+	@include media_min($above_laptop_sm)
+		::-webkit-input-placeholder
+			color: $color-white
+
+		::-moz-placeholder
+			color: $color-white
+
+		::-ms-input-placeholder
+			color: $color-white
 // slider global
 .swiper-container-horizontal
 	> .swiper-pagination-bullets
 		.swiper-pagination-bullet
 			margin: 0 5px
+			@include media_min($above_mobile)
+				margin: 0 7px
 .swiper-pagination-bullets
 	margin-top: 2em
 	margin-bottom: 1em
+	@include media_min($above_laptop_sm)
+		margin-top: 0.8em
+		margin-bottom: 2.5em
 	&.swiper-pagination-bullets--nobg
 		.swiper-pagination-bullet
 			background: transparent
 			border: 1px solid $color-gray
+			@include media_min($above_mobile)
+				border-color: $color-white
 .swiper-pagination-bullet
 	width: 10px
 	height: 10px
@@ -91,8 +109,8 @@ select
 	background: $color-green
 	opacity: 0.5
 	@include media_min($above_mobile)
-		width: 15px
-		height: 15px
+		width: 12px
+		height: 12px
 	&.swiper-pagination-bullet-active
 		opacity: 1
 // button
@@ -112,8 +130,26 @@ select
 	border-radius: 5px
 	text-decoration: none
 	transition: all 0.3s ease-in-out
+	@include media_min($above_mobile)
+		width: auto
 	@include media_min($above_tablet)
 		font-size: 1.25em
 		width: auto
 	&:hover
 		box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.28)
+	&.button--whitebg-green
+		color: $color-green
+		background-color: $color-white
+// colors
+.color-fb
+	color: $color-fb
+.color-rss
+	color: $color-rss
+.color-tw
+	color: $color-tw
+.color-pi
+	color: $color-pi
+.color-dr
+	color: $color-dr
+.color-vi
+	color: $color-vi

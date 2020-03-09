@@ -1,8 +1,10 @@
 <?php if( get_row_layout() == 'projects_list' ): ?>
+	<!-- section project-list -->
 	<?php
 		// data
 		$projects = get_sub_field( 'projects' );
 		$section_background = get_sub_field( 'section_background' );
+		$section_id = get_sub_field( 'section_id' );
 		// get current projects showing and put their id-s in array
 		$curr_project_list = array();
 		foreach( $projects as $post ) {
@@ -19,7 +21,7 @@
 		$rest_of_projects = array();
 		foreach( $filtered_projects->posts as $data ) {
 			$rest_of_projects[] = '<div class="projects_list__item">'.
-								'<img src="'.get_the_post_thumbnail_url( $data, 'medium' ).'"'.
+								'<img src="'.get_the_post_thumbnail_url( $data, 'medium_large' ).'"'.
 								'alt="'.$data->post_name.'-image">'.
 								'</div>';
 		}
@@ -29,6 +31,7 @@
 	<?php if( $projects ): ?>
 		<section class="layout__projects_list"
 			<?php echo $section_background ? 'style="background-color:' . $section_background . ';"' : null ?>
+			<?php echo $section_id ? 'id="'.$section_id.'"' : null; ?>
 		>
 			<div class="container">
 				<div class="projects_list__inner load-more-data-js">
@@ -39,7 +42,7 @@
 						?>
 						<div class="projects_list__item">
 							<?php if( has_post_thumbnail() ): ?>
-								<img src="<?php echo get_the_post_thumbnail_url( $post, 'medium' ); ?>" alt="<?php echo $post->post_name ?>-image">
+								<img src="<?php echo get_the_post_thumbnail_url( $post, 'medium_large' ); ?>" alt="<?php echo $post->post_name ?>-image">
 							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
@@ -55,4 +58,5 @@
 			</div>
 		</section>
 	<?php endif; ?>
+	<!--/ section project-list -->
 <?php endif; ?>

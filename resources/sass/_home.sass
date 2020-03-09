@@ -26,8 +26,7 @@
 			width: 100%
 			height: 100%
 			object-fit: cover
-			@include media_min($above_tablet)
-				
+			@include media_min($above_tablet)	
 	.swiper-slide__content
 		text-align: center
 		padding: 1em
@@ -37,14 +36,26 @@
 			left: 50%
 			transform: translate(-50%, -50%)
 			color: $color-white
+			width: 90%
+		@include media_min($above_laptop_sm)
+			width: auto
+			max-width: 700px
+			margin: auto
 		h2
 			text-transform: uppercase
-			font-size: 1.7em
+			font-size: 2em
+			@include media_min($above_laptop_sm)
+				font-size: 3.1em
 			+ p
 				margin-top: 1em
 				font-size: 1.15em
 				line-height: 1.4
+				@include media_min($above_laptop_sm)
+					margin-top: 2em
 	.swiper-pagination
 		position: static
 		@include media_min($above_mobile)
 			position: absolute
+	.swiper-pagination-bullets
+		@include media_min($above_laptop_sm)
+			margin-bottom: 4em

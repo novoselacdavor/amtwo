@@ -1,12 +1,15 @@
 <?php if( get_row_layout() == 'team_member_list' ): ?>
+	<!-- section team-member-list -->
 	<?php
 		// data
 		$members = get_sub_field( 'members' );
 		$section_background = get_sub_field( 'section_background' );
+		$section_id = get_sub_field( 'section_id' );
 	?>
 	<?php if( $members ): ?>
 		<section class="layout__team_member_list"
 			<?php echo $section_background ? 'style="background-color:' . $section_background . ';"' : null ?>
+			<?php echo $section_id ? 'id="'.$section_id.'"' : null; ?>
 		>
 			<div class="container">
 				<div class="team_member_list__inner">
@@ -22,7 +25,7 @@
 						?>
 						<div class="team_member_list__item">
 							<?php if( has_post_thumbnail() ): ?>
-								<img src="<?php echo get_the_post_thumbnail_url( $post, 'medium' ); ?>" alt="<?php echo $post->post_name ?>-image">
+								<img src="<?php echo get_the_post_thumbnail_url( $post, 'medium_large' ); ?>" alt="<?php echo $post->post_name ?>-image">
 							<?php endif; ?>
 							<div class="team_member_list__social">
 								<h3><?php the_title() ?></h3>
@@ -64,4 +67,5 @@
 			</div>
 		</section>
 	<?php endif; ?>
+	<!--/ section team-member-list -->
 <?php endif; ?>

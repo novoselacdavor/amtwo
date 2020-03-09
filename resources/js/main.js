@@ -7,90 +7,56 @@ jQuery(document).ready(function($){
 	    }
 	});
 
+	// mobile menu toggle
+	$('.mobile-menu-trigger').on('click', function(){
+		$('.main-header__nav, body').toggleClass('menu-opened');
+	});
+
+	// mobile menu close
+	$('.close-menu, .menu a' ).on('click', function(){
+		$(this).parents('.main-header__nav').removeClass('menu-opened');
+		$('body').removeClass('menu-opened');
+	});
+
 	// scroll to id
 	$('a[href*="#"]').on('click', function (e) {
 		e.preventDefault();
-
+		var header_heigth = $('.sticky-header').outerHeight();
+		var link_href = $(this).attr('href');
+		if( !link_href ) {
+			return;
+		}
 		$('html, body').animate({
-			scrollTop: $($(this).attr('href')).offset().top
+			scrollTop: $(link_href).offset().top - header_heigth
 		}, 500, 'linear');
+	});
+
+	// sticky header
+	$(window).scroll(function() {
+		var scrolled = $(window).scrollTop();
+		if(scrolled > 150) {
+			$('.main-header').addClass('sticky-header');
+		}
+		if(scrolled < 150) {
+			$('.main-header').removeClass('sticky-header');
+		}
 	});
 
 	// loading projects on button click
 	var load_more_click = 0;
 	$('.load-more-js').on('click', function(){
+		// data to load
 		var load_more_data = rest_of_projects;
-		$(this).parents('section').find('.load-more-data-js').append(load_more_data[load_more_click]);
+		// load data container
+		var load_more_data_container = $(this).parents('section').find('.load-more-data-js');
+		// load data to the container
+		$(load_more_data_container).append($(load_more_data[load_more_click]).fadeIn());
+		// increase counter
 		load_more_click++;
+		// hide the button if there is no more data
 		if(load_more_data.length == load_more_click) {
-			$(this).fadeOut();
+			$(this).hide();
 		}
-	});
-
-	// validation
-	// $(".contact-form form").validate({
-	// 	rules: {
-	// 		name: {
-	// 			required: true,
- //      			minlength: 2
-	// 		},
-	// 		email: {
-	// 	    	required: true,
-	// 	    	email: true
-	// 		}
-	// 	},
-	// 	messages: {
-	// 	    name: "Please specify your name",
-	// 	    email: {
-	// 	    	required: "We need your email address to contact you",
-	// 	      	email: "Your email address must be in the format of name@domain.com"
-	// 	    }
-	// 	},
-	// 	wrapper: "p",
-	// 	success: function(label) {
-	// 		label.parent().prev().removeClass('error-input').addClass('success-input')
-	// 		label.hide()
-	// 	},
-	// 	highlight: function(element, errorClass) {
-	// 		$(element).parent().removeClass('success-input').addClass('error-input')
-	// 	},
-	// 	errorPlacement: function(error, element) {
-	// 		error.insertAfter(element.parent());
-	// 	},
-	// 	submitHandler: function(form) {
-	// 		submit form via ajax
-	// 		var formData = $(form).serialize();
-	//         $.ajax({
-	//             url: 'email.php',
-	//             type: 'POST',
-	//             dataType: "json",
-	//             data: formData,
-	//             success: function(response) { 
-	//                 // alert(response.success);
-	//                 $('.success-msg').fadeIn();
-	//                 $('.contact-form form p').removeClass('success-input');
-	//                 $('.contact-form form').trigger('reset');
-	//             },
-	//             error: function(xhr, status, error){
-	//                 console.log(xhr); 
-	//             }         
-	//         });
-	// 	}
-	// });
-
-	// back to top
-	// $('.backToTop').on('click', function(e) {
-	// 	e.preventDefault();
-	// 	$('html, body').animate({scrollTop:0})
-	// });
-	
-	// mobile menu toggle
-	$('.mobile-menu-trigger').on('click', function(){
-		$('.main-header__nav, body').toggleClass('menu-opened');
-	});
-	// mobile menu close
-	$('.close-menu').on('click', function(){
-		$(this).parent().removeClass('menu-opened');
 	});
 	
 });

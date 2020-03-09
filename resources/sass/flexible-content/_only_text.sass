@@ -1,8 +1,23 @@
 .layout__only_text
 	text-align: center
 	padding: 3em 0
+	@include media_min($above_laptop_sm)
+		padding-top: 4em
 	h2
 		font-size: 1.4em
 		text-transform: uppercase
+		@include media_min($above_laptop_sm)
+			max-width: 48%
+			margin: auto
+			font-size: 1.75em
 		+ div
 			margin-top: 1em
+	.only_text__inner
+		@include media_min($above_tablet)
+			max-width: 80%
+			margin: auto
+		@include media_min($above_laptop_sm)
+			max-width: 58%
+		p
+			@include media_min($above_laptop_sm)
+				font-size: 1.1em
