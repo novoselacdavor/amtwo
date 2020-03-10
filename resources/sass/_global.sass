@@ -14,6 +14,8 @@ body
 	margin-left: auto
 	margin-right: auto
 	padding: 0 1em
+	@include media_min($above_laptop_sm)
+		padding: 0
 // admin bar push
 .admin-bar
 	padding-top: 46px
@@ -116,10 +118,12 @@ select
 // button
 .button
 	display: inline-flex
+	align-items: center
 	justify-content: center
 	min-width: 190px
 	width: 100%
-	padding: 18px 1em
+	height: 55px
+	padding: 0 1em
 	font-family: 'Montserrat-Light'
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2)
 	font-size: 1em

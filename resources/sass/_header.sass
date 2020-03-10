@@ -26,10 +26,17 @@
 			color: $color-gray
 		.logo
 			border-color: $color-gray
+		.main-header__inner
+			align-items: center
+			a
+				&:hover
+					border-bottom-color: $color-gray
 .main-header__inner
 	display: flex
 	align-items: center
 	justify-content: space-between
+	@include media_min($above_tablet)
+		align-items: flex-start
 	nav
 		text-align: center
 		@include media_min($above_tablet)
@@ -43,9 +50,15 @@
 			text-decoration: none
 			text-transform: uppercase
 			letter-spacing: 0.04em
+			border-bottom: 1px solid transparent
+			transition: border-bottom 0.3s ease-in-out
 			@include media_min($above_tablet)
 				color: $color-white
+				font-size: 1em
 				line-height: 0.85em
+				padding: 0.4em 0
+			&:hover
+				border-bottom-color: $color-white
 	li
 		list-style-type: none
 		&:not(:last-of-type)
